@@ -1,10 +1,12 @@
 import { ADD_MOVIES } from "../Actions/index";
 import { FAV_MOVIES } from "../Actions/index";
 import { REMOVE_MOVIES } from "../Actions/index";
+import { SET_SHOW_FAVOURITES } from "../Actions/index";
 
 const initialState = {
   list: [],
   favourites: [],
+  showFavourites: false,
 };
 
 export default function movies(state = initialState, action) {
@@ -36,6 +38,12 @@ export default function movies(state = initialState, action) {
       return {
         ...state,
         favourites: fav,
+      };
+
+    case SET_SHOW_FAVOURITES:
+      return {
+        ...state,
+        showFavourites: action.val,
       };
 
     default: {
