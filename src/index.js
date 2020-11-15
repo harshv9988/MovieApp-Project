@@ -4,9 +4,9 @@ import { createStore } from "redux";
 
 import "./index.css";
 import App from "./components/App";
-import movies from "./Reducers/index";
+import rootReducer from "./Reducers/index";
 
-const store = createStore(movies);
+const store = createStore(rootReducer);
 // console.log("store", store);
 
 // store.dispatch({
