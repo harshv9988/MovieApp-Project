@@ -38,7 +38,7 @@ class App extends React.Component {
     console.log("nextstate", this.props.store.getState());
     return (
       <div className="App">
-        <Navbar />
+        <Navbar dispatch={this.props.store.dispatch} />
         <div className="main">
           <div className="tabs">
             <div className="tab" onClick={() => this.changeDisplay(false)}>
