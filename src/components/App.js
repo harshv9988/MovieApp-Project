@@ -3,6 +3,7 @@ import { data } from "../data";
 import Navbar from "./Navbar";
 import MovieCard from "./MovieCard";
 import { addMovies, setShowFavourites } from "../Actions/index";
+import { StoreContext } from "..";
 
 class App extends React.Component {
   componentDidMount() {
@@ -38,7 +39,7 @@ class App extends React.Component {
     console.log("nextstate", this.props.store.getState());
     return (
       <div className="App">
-        <Navbar dispatch={this.props.store.dispatch} search={search} />
+        <Navbar search={search} />
         <div className="main">
           <div className="tabs">
             <div className="tab" onClick={() => this.changeDisplay(false)}>
@@ -66,4 +67,15 @@ class App extends React.Component {
   }
 }
 
-export default App;
+class AppWrapper extends React.Component {
+  render() {
+    console.log("AppWarapper");
+    return (
+      <StoreContext.Consumer>
+        {(store) => <App store={store} />}
+      </StoreContext.Consumer>
+    );
+  }
+}
+
+export default AppWrapper;
