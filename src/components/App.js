@@ -42,10 +42,16 @@ class App extends React.Component {
         <Navbar search={search} />
         <div className="main">
           <div className="tabs">
-            <div className="tab" onClick={() => this.changeDisplay(false)}>
+            <div
+              className={`${showFavourites ? "tab" : "active-tabs tab"}`}
+              onClick={() => this.changeDisplay(false)}
+            >
               Movies
             </div>
-            <div className="tab" onClick={() => this.changeDisplay(true)}>
+            <div
+              className={`${showFavourites ? "active-tabs tab" : "tab"}`}
+              onClick={() => this.changeDisplay(true)}
+            >
               Favourites
             </div>
           </div>
@@ -60,6 +66,9 @@ class App extends React.Component {
                 />
               );
             })}
+            {showFavourites && favourites.length === 0 && (
+              <div style={{ marginTop: 42 }}>No Fvaourites to show...</div>
+            )}
           </div>
         </div>
       </div>
