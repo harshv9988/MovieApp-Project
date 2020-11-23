@@ -3,8 +3,9 @@ import { data } from "../data";
 import Navbar from "./Navbar";
 import MovieCard from "./MovieCard";
 import { addMovies, setShowFavourites } from "../Actions/index";
-import { StoreContext } from "..";
-import { connect } from "../index";
+import { connect } from "react-redux";
+// import { StoreContext } from "..";
+// import { connect } from "../index";
 
 class App extends React.Component {
   componentDidMount() {
@@ -14,8 +15,6 @@ class App extends React.Component {
     // });
 
     this.props.dispatch(addMovies(data));
-
-    // console.log("state", this.props.store.getState());
   }
 
   isFavourite = (movie) => {
