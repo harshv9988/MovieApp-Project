@@ -32,7 +32,7 @@ export function setShowFavourites(val) {
     val: val,
   };
 }
-
+// changed the api to https as github is requesting
 export function handleMovieSearch(movie) {
   const url = `https://www.omdbapi.com/?apikey=3ca5df7&t=${movie}`;
 
